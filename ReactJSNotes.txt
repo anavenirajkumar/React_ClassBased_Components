@@ -1,0 +1,772 @@
+How to Take Screenshot from Windows => windowsbutton + shift + s    => Rajkumar
+
+How to Connect Server to Database ?
+
+Go to Command -> mongo
+              ->show dbs
+after ->Go to Server -> nodemon server.js
+
+-------------------------------------------
+Mongo DB Connecting Error
+
+Go to Services-> Mongo DB Server and Start
+
+
+-------------------------------------------------------------------
+
+1)Pubilc Folder index.html Going to index.js File and is Going to App.js In Function html.code this html is code styles is going to App.css
+
+2) Create Components: 2) Ways 1)Functional Components 2)Class Based Componets
+
+                1)Functional Components -->
+                   Ex: Styles Using Css --> inline / internal / external
+                 
+
+ let FuncCard = ()=> {     
+        return(
+               <div>
+                   <h3 className="orange">Welcome to Functional Component</h3>
+               </div>   
+        );
+    };
+
+export default FuncCard;
+
+        
+-------------------------------------------------------------------------------
+                2) Class Based Componets -->
+                   Ex: Styles Using Css --> inline / internal / external 
+
+                 create any js file first Capital letter(ClassCrd.js)
+
+
+class ClassCard extends React.Component {      // General Structure  // Child Component  to App.js
+                                                  
+    render() {                                 // Class base component
+      
+     return (
+            <div>
+                <h2 className = 'blue' >Welcome to Class Component</h2>  
+            </div>
+        );
+    }
+}        
+export default ClassCard; 
+   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                               React Fundamentals
+Every tag as Close tag*
+
+Install Bootsrap for ReactJS :   npm i mdbootstrap (Unistall Antivirus First)
+
+
+Website:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+=================================================================== Forms Binding ================================================================================================
+<form>
+   <div className="form-group">
+      <input
+            value={this.state.username}      // Static       
+            onChange={this.updateValue}    // Type Any Keyword OR Event this event is Transfer to => value={this.state.username} 
+            type="text" className="form-control" placeholder="Enter Your User Name> </input>
+   </div>
+</form>
+                      <p className = "h3">{this.state.username}</p> // Show on Here
+
+-----------------------------------------------------------------------------------------------------------------------
+count : 100,
+maxlimit : 100     
+
+count : this.state.maxlimit - event.target.value.length     // Count nundi minis=> Maxlimit thisestunnam
+
+
+
+-----------------------------------------------------------------------------------------------
+ this.state = {                                   // States Maintain Own data and Send Any To Data Use this.state( only states lo unna data appude ) 
+            inputType : 'password'
+        }
+    }
+
+    ShowAndHide=(event)=>{   // Condition True Ithe appudu text kanapadali. False Ithe hide password kanapadali
+        (this.state.inputType === 'password') ? this.setState({      // Ex:  True : False  Ternamry Operator
+            inputType : 'text'
+        }) : this.setState({
+            inputType : 'password'
+        })
+    };
+     
+2) Method:
+
+ //  if(this.state.inputType === 'password'){       //if
+    //     this.setState({
+    //         inputType : 'text'
+    //     });
+    //  }
+    //  else{                                      //else
+    //     this.setState({
+    //         inputType : 'password'
+    //     })
+    //  }
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+=========================== Coditional-List-Rendering ===========================
+          
+          ( Ternery Operator True : False ) 
+
+     (  ! Not pedithe click chesindi kanapadadu like Buttons,Cards)
+
+1) Conditional MEANS oka Login, Logout vundi .   ????????????
+  Login Button :Login Button Ni Click Oka Data Kanapadali,  
+  Logout Button Logout Button Ni Click Oka Data Kanapadali.
+
+{                      // ! Not  !Not isLoggedIn Means Login Button Click Cheste Logout Button Kanapadali.logout Button ni Click Cheste Login Button Kanapadali
+      !this.state.isLooggedIn &&   // Going to Logout Buuton
+ <button onClick={this.login} className="btn btn-success">Login</button>  
+
+}
+{                     
+      this.state.isLooggedIn &&   // Going to Login Buuton
+ <button onClick={this.login} className="btn btn-success">Login</button>  
+
+}
+
+
+  (  ! Not pedithe click chesindi kanapadadu like Buttons,Cards)  => Checkbox Buttons
+
+   
+                                 ( hobby === 'eating' ?   hobby === coding ?   hobby === sleeping ? )   => Radio Buttons
+   {
+    hobby === 'eating' ?  radio Button Click Cheste. Card Okate kani A Option Ni Click Cheste Ade Option Ade Okka Card lo Matrame Kanapadali. 
+                                                    <Fragment>
+                                                        <div className="card animated jello">
+                                                            <div className="card-body bg-success text-white">
+                                                                <p className="h4">Eating</p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                            </div>
+                                                        </div>
+                                                    </Fragment> : null
+                                            }
+
+2) Rendering MEANS (Looping) 
+                              {
+                                    this.state.employees.map((emp)=>{             // 	Important
+                                        return(
+
+                                            <tr>
+                                                <td>{emp.id}</td>
+                                                <td>{emp.name}</td>
+                                                <td>{emp.age}</td>
+                                                <td>{emp.designation}</td>
+                                            </tr>
+                                        )
+
+                                    })
+                                }
+
+
+--------------------------------------------------------------------------------------
+               Component-Interaction, Context-API
+
+Props Drilling : AppComponet to ComponentA=>ComponentB=>ComponentC
+
+Context-API : AppComponet to Any Component Direct (Providers, Consumers)
+
+
+
+
+------------------------------------------------------------------------------------------
+                            React JS with http
+---------------------------------------------------------------------------------------
+
+React JS -> Library , not a framework
+
+fetch API ->
+Axios Library -> HTTP -> Get , post , trace , delete , put , patch
+
+npm install axios -> npm install axios -> entry in package.json
+---------------------------------------
+React Life Cycle Methods
+---------------------------------------
+constructor() ->
+render() ->
+                   // Important 2 Life Cycles Below//
+componentDidMount() -> fetch the data from server  // Like Birth
+componentWillUnMount()      // Like Death
+
+
+                   // Life Cycles 2 //
+      // When the Component iS Fully Loaded this Exucute Like Birth
+  componentDidMount(){
+     this.timer = setInterval(()=>{    // ekkada this.timer ane Idi Echamu Distray Cheyadaniki
+             this.setState({
+                 curentTime : new Date().toLocaleTimeString()
+             })
+      },1000)
+  }
+   
+     // Clear Intervel Distray This Component like Death
+       componentWillUnmount(){
+             clearInterval(this.timer);
+       }
+ 
+     
+-------------------------------- PUSH DATA TO SERVER -----------------------------------          
+ 
+1)Login Github After
+2) Goto this Link:   https://gist.github.com/
+3)create json: Contact-List-09072020.json and Paste The JSON Content and Create Secret Gist Button
+4) https://gist.githubusercontent.com/anavenirajkumar/5f9445833dbb235b96461fed3eb815a4/raw/82fbf3dadddd7499703329554095f434ed2f133c/Contact-List-09072020.json
+
+
+
+-----------------------------------------------------------------------------------
+	                   Github Search App
+--------------------------------------------------------------------------------------
+ 
+Github API : Goto Search Google Github api => Goto => Users =>
+
+ 1) https://api.github.com/users/anavenirajkumar  // Look ?
+ 2)https://api.github.com/users/anavenirajkumar/repos
+ 3) https://avatars3.githubusercontent.com/u/49983953?v=4   // Look only Image ?
+         After
+Rigister API Application Unlimited Access to API Github
+
+ Goto Github Profile Settings and Click Developer Settings 
+
+  Click OAuth Apps  Click Register New Appication => Application name: react-github-profile-app-anavenirajkumar
+
+Homepage URL :http://localhost:3000/
+
+Application description : github-profile-app-to-unlimited-api-access
+
+Authorization callback URL : http://localhost:3000/
+
+After Copy =>
+
+Client ID
+3a56d1d4be7ff39fe2c2
+
+Client Secret
+02135ee02b2f76a0dc57b3567b7f796285c1a1c8
+
+
+------------------------- Data nu Pampadaaniki ---------------------------------------------
+
+Own State Data Nundi Pampithe this.state.profile => Sending Data Own C to Other Compoents
+
+Receieve => this.props.profile //like
+
+{
+                                 //Profile Data Object lo Vundi   
+                                // Data GithubSearchApp nundi GithubProfile ku Povalante Condition True r False
+                                Object.keys(this.state.profile).length !==0 ?
+                                    <Fragment>
+                                        <GithubProfile profile={this.state.profile}></GithubProfile>
+                                    </Fragment> : null
+                             }
+
+
+-----------------------------------------------------------------------------------------
+                                React Routing
+----------------------------------------------------------------------------------------
+
+ 1) npm i mdbootstrap
+ 2) install : npm install axios 
+ 2) npm i react-router-dom
+
+1)Router 2) Switch 3) Route
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+                                  Node-JS
+------------------------------------------------------------------------------------------------
+Important To Node JS Concepts => Callback Functions , Pomises , Arrow Functions 
+
+1) Core Modules 2) Costom Modules 3)NPM Modules
+
+
+-------------------------------------------------------------------------------------------------------------
+                            NPM Node Modules
+---------------------------------------------------------------------------------------------
+
+1) bcryptjs       =>  ( encode the password )
+2) jsonwebtoken  => ( JWT )
+3) dotenv
+4) gravatar
+5) uuid
+
+
+1) bcryptjs ==>    1) npm init (or) npm init --yes      
+                   2) npm install bcryptjs
+
+
+
+2) jsonwebtoken ==>   website ==>  https://jwt.io/
+                              
+                    1) npm init --yes
+                    2) npm install jsonwebtoken
+
+
+
+3) dotenv   ==>    1) npm init --yes
+                   2) npm install dotenv
+
+
+4) gravatar  ==> website :  https://en.gravatar.com/
+ 
+                 1) npm init --yes
+                 2) npm install gravatar
+                
+
+
+
+----------------------------------------------------------------------------------------
+                          Create a Node JS Server
+-----------------------------------------------------------------------------------------
+
+1) npm init --yes
+2) npm install dotenv   ==> and create 'config' folder and in folder create 'config.env' file;
+3) After Run: node server.js
+4) npm install -g nodemon  ( Automatic Reastart The Server ) only ==> C:\Users\Anil> To Totall All System
+5) After Run : nodemon server.js
+
+-----------------------------------------------------------------------------------------------
+                              Express JS
+-------------------------------------------------------------------------------------------------
+
+=> Request Http =>  GET    => (Receive any data from server) => /home
+                    POST   => (Send some data to server) => CRETE
+                    PUT    => (Update data at server)  =>UPDATE
+                    DELETE => Delete data at server) => DELETE
+
+Express JS Advantages
+--------------------------------
+=> Request => GET => app.get('/' ,() => {});
+              POST=> post('/' ,() => {});
+              PUT=> app.put('/' ,() => {});
+              DELETE=> app.delete('/' ,() => {});
+
+=> Responce =>html Tag => responce.send();
+            =>html page => =>responce.sendFile();
+            =>json      =>responce.json();
+            =>download file  => responce.download(); 
+
+
+--------Start      1) npm init --yes
+                   2)npm install express
+                   3)npm install dotenv
+
+------------------------------------------------------------------------------------------
+ 
+Express JS Routing
+                    1) npm init --yes
+                    2) npm install express
+                    3) npm install dotenv
+
+----------------------------------------------------------
+
+Express JS REST API
+-------------------
+ 
+1) npm init --yes
+2) npm install express dotenv
+3) npm install uuid ( Automatic Icreament Id On NodeJS Server )
+
+
+
+
+-----------------------------------------------------------------------------------------------------------
+                           Mongo DB
+------------------------------------------------------------------------------------------------------------
+show dbs------------------------------->
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> use employee-portal--------------------->
+switched to db employee-portal
+
+> db.createCollection('employees');------------>
+{ "ok" : 1 }
+
+> show dbs----------------------------------------->
+admin            0.000GB
+config           0.000GB
+employee-portal  0.000GB
+local            0.000GB
+
+> use employee-portal------------------------------------>
+switched to db employee-portal
+
+> show collections----------------------------------------->
+employees
+
+> db.employees.insertOne({-----------------CREATE--------------------> db.employees.insertOne({ name : 'Rajkumar', age : 23, designation : 'Full Stack Developer', isActive : false });
+... name : 'Rajan',
+... age : 25,
+... designation : 'Software Engineer',
+... isActive : true
+... });
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5f5f28a6c5044c8a4466c355")
+}
+> db.employees.find();------------------------------------------------>
+{ "_id" : ObjectId("5f5f28a6c5044c8a4466c355"), "name" : "Rajan", "age" : 25, "designation" : "Software Engineer", "isActive" : true }
+
+> db.employees.find().pretty();--------------------------------------------->
+{
+        "_id" : ObjectId("5f5f28a6c5044c8a4466c355"),
+        "name" : "Rajan",
+        "age" : 25,
+        "designation" : "Software Engineer",
+        "isActive" : true
+}
+> db.employees.insertOne({-------------------------------------------------->
+    name : 'Mahesh',
+    age : 28,
+    designation : 'Tech Lead',
+    isActive : false
+  });
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5f5f2988c5044c8a4466c356")
+}
+> db.employees.find().pretty();------------------------------------------------------>
+{
+        "_id" : ObjectId("5f5f28a6c5044c8a4466c355"),
+        "name" : "Rajan",
+        "age" : 25,
+        "designation" : "Software Engineer",
+        "isActive" : true
+}
+{
+        "_id" : ObjectId("5f5f2988c5044c8a4466c356"),
+        "name" : "Mahesh",
+        "age" : 28,
+        "designation" : "Tech Lead",
+        "isActive" : false
+}
+
+db.employees.find({ _id : ObjectId("5f5f2988c5044c8a4466c356")}).pretty();-------------------->
+
+
+db.employees.insertOne({ name : 'Rajkumar', age : 23, designation : 'Full Stack Developer', isActive : false });
+
+UPDATE
+----------------------------------------------------------UPDATE-----------------------------------------------------------------------------
+db.employees.updateOne({name : 'Rajan'} , {
+	$set : {
+		age : 28,
+		designation : 'Sr. Software Engineer'
+	}
+});
+
+db.employees.updateOne({name : 'Wilson'} , {
+	$set : {
+		age : 48,
+		designation : 'Director'
+	}
+});
+
+-----------------------------------------------DELETE-----------------------------------------------------------------------------------------
+
+db.employees.deleteOne({name : 'Rajan'});----------------------------------------------------------> DELETE by Name
+
+db.employees.deleteOne({_id :  ObjectId("5f5f2ec9c5044c8a4466c35a")});-------------------------------------->DELETE By ID Using
+
+
+======================================================= CMD Mango DB  Cloud Online ==============================================================
+
+> use employee-portal--------------------->
+             switched to db employee-portal
+> db.createCollection('employees');------------>
+            { "ok" : 1 }
+
+1) mongo "mongodb+srv://employee-portal.kiztx.mongodb.net/employee-portal" --username anavenirajkumar
+
+2) use employee-portal
+
+3) db.createCollection('employees');
+4)  show dbs
+5) show collections
+
+Connect Mongo DB Compass
+------------------------
+1) mongodb+srv://anavenirajkumar:anavenirajkumar@employee-portal.kiztx.mongodb.net
+
+
+2) Goto Mongo DB Compass Open And Look top "Connect to"    -----------> Not Connected To Compass Cloud Online Data
+
+3) db.employees.insertOne({ 
+                name : 'Rajkumar', 
+                age : 23, 
+                designation : 'Full Stack Developer',
+                isActive : false });                                --------------------->Insert into Online Cloud Is Working
+
+
+db.employees.insertOne({
+	name : 'Srikanth',
+	age : 24,
+	designation : 'Traveller',
+	isActive : true
+});
+
+
+db.employees.insertOne({
+	name : 'Prem',
+	age : 22,
+	designation : 'Accountant',
+	isActive : true
+});
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+                              Big Basket Backend Setup
+------------------------------------------------------------------------------------------------------------------------
+1) npm init --yes 
+2) npm install express mongoose cors dotenv
+
+For Create Database in `config.env` file ------------> mongodb://127.0.0.1:27017/big-basket
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+                                Big Basket Frontend + Backend Application
+                                          Full Application
+----------------------------------------------------------------------------------------------------------------------------------
+
+  1) Paste Backend Setup In React Frontend Application and Run Cmd Path: server
+  2) nodemon server.js
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+                            React Hooks ( Functinal Components )
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) useState()
+2) useEffect
+
+
+--------------------------------------------------------------------------------------------------------------------------
+                                  Uniq Key error in Console.log
+----------------------------------------------------------------------------------------------------------------------------------    
+      Solution  ======================>  <tr key={user.id}>
+                                                      <td>{user.id}</td>
+                                                      <td>{user.name}</td>
+                                                      <td>{user.username}</td>
+                                                      <td>{user.email}</td>
+                                                      <td>{user.address.city}</td>
+                                          </tr>
+
+
+
+
+
+
+
+-----------------------------------------------REDUX------------------------------------------------------------
+
+Useselector fetch data from State
+
+DispatchActions Click on Button Action Types
+
+npm install redux-logger  => for console in browser
+
+REDUX Thunk for Http =>  npm install redux-thunk
+
+         Thunk -------------------------
+                 FETCH_REQUEST,
+                 FETCH_SUCCESS,
+                 FETCH_FAILURE
+
+
+
+
+
+------------------------------------------------------------------- EVENTS BOOKING APP ----------------------------------------------------------------
+
+1) First Design
+2)Redux Setup (actions,types,redusers)
+3) root redusers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
